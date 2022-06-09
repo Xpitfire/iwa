@@ -1,4 +1,4 @@
-# Aggregation Method for Domain Adaptation
+# Ensemble Learning for Domain Adaptation by Importance Weighted Least Squares
 
 ## Installing
 
