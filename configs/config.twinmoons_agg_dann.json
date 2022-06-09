@@ -1,0 +1,129 @@
+{
+    "debug": false,
+    "device": null,
+    "approach": {
+        "module": "approaches/trainer.py",
+        "lambda_": 1.0,
+        "gamma_": 1.1,
+        "lambda_list": [
+            0,
+            1e-6,
+            1e-5,
+            1e-4,
+            1e-3,
+            1e-2,
+            1e-1,
+            1,
+            2,
+            5, 
+            10, 
+            15
+        ]
+    },
+    "method": {
+        "config": "import::configs/config.twinmoons_dann_backbone.json"
+    },
+    "iwv_model": {
+        "module": "models/mlp_moons_agg_iwv.py",
+        "classname-help": "MLP",
+        "classname": "MLP",
+        "MLP": {
+            "n_in": 2,
+            "n_hidden": 50,
+            "n_layers": 2,
+            "activation": "relu",
+            "dropout": 0.5
+        }
+    },
+    "mdd_model": {
+        "module": "models/mlp_moons_agg_mdd.py",
+        "classname-help": "MLP",
+        "classname": "MLP",
+        "MLP": {
+            "n_hidden": 50,
+            "n_layers": 1,
+            "activation": "relu",
+            "dropout": 0.5
+        }
+    },
+    "agg_backbone": {
+        "pretrained": true,
+        "pretraining_dataset": "custom",
+        "feature_layer": "adaptation_layer",
+        "out_units": 25,
+        "trainable": false
+    },
+    "trainer": {
+        "experiment_name": "twinmoons-cs_agg_dann",
+        "checkpoint_dir": "tmp/",
+        "tensorboard_dir": "runs/",
+        "code_backup_filename": "code.zip",
+        "epochs": 100,
+        "epochs_cls": 100,
+        "alpha_type": "reversal_anneal",
+        "batchsize": 256,
+        "min_epochs": 20, 
+        "early_stopping_patience": 0,
+        "save_interval": 10,
+        "apply_gradient_norm": true,
+        "max_gradient_norm": 2.0,
+        "use_mixed_precission": false,
+        "optimizer_file": "misc/optimizer.py",
+        "optimizer-help": "SGD|Adam",
+        "optimizer": "Adam",
+        "Adam": {
+            "lr": 0.001,
+            "beta1": 0.9,
+            "beta2": 0.999,
+            "weight_decay": 0.0,
+            "scheduler-help": "None|MultiStepLR|ReduceLROnPlateau",
+            "scheduler": "MultiStepLR",
+            "MultiStepLR": {
+                "milestones": [30, 60, 120],
+                "gamma": 0.5
+            }
+        },
+        "criterion_file": "misc/losses.py",
+        "metric_file": "misc/metrics.py",
+        "proxya_criterion": "proxy_a_classifier_ce",
+        "proxya_metric": "proxy_a_accuracy",
+        "mdd_criterion": "mdd_classifier_ce",
+        "mdd_metric": "mdd_distance",
+        "iwv_criterion": "iwv",
+        "iwv_metric": "iwv_accuracy"
+    },
+    "dataloader": {
+        "module": "dataloaders/moons_NS.py",
+        "funcname": "create_domain_adaptation_data",
+        "dataset-help": "Moon|MoonsNS",
+        "dataset": "MoonsNS",
+        "full_data_in_memory": true,
+        "reset_and_reload_memory": true,
+        "Moon": {
+            "n_classes": 2,
+            "random_state": 1111,
+            "n_samples": 1000,
+            "split_size": 0.25,
+            "noise": 0.05,
+            "shift_domain_x": -0.2,
+            "shift_domain_y": 0.2,
+            "rotate_domain": -0.3
+        },
+        "MoonsNS": {
+            "source_train_x": "data/moons/moons_source_train_x.npy",
+            "source_train_y": "data/moons/moons_source_train_y.npy",
+            "target_train_x": "data/moons/moons_target_train_x.npy",
+            "target_train_y": "data/moons/moons_target_train_y.npy",
+
+            "source_valid_x": "data/moons/moons_source_valid_x.npy",
+            "source_valid_y": "data/moons/moons_source_valid_y.npy",
+            "target_valid_x": "data/moons/moons_target_valid_x.npy",
+            "target_valid_y": "data/moons/moons_target_valid_y.npy",
+
+            "source_test_x": "data/moons/moons_source_test_x.npy",
+            "source_test_y": "data/moons/moons_source_test_y.npy",
+            "target_test_x": "data/moons/moons_target_test_x.npy",
+            "target_test_y": "data/moons/moons_target_test_y.npy"
+        }
+    }
+}
