@@ -90,12 +90,6 @@ To add a new algorithm, place it in `algorithms/algorithms.py` file.
 
 ## Training procedure
 
-The experiments are organised in a hierarchical way such that:
-- Several experiments are collected under one directory assigned by `--experiment_description`.
-- Each experiment could have different trials, each is specified by `--run_description`.
-- For example, if we want to experiment different UDA methods with CNN backbone, we can assign
-`--experiment_description CNN_backnones --run_description DANN` and `--experiment_description CNN_backnones --run_description DDC` and so on.
-
 ### Training a model
 
 To train the models:
