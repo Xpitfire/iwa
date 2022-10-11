@@ -29,11 +29,6 @@ cd bpda
 conda env create -f environment.yml
 ```
 
-3. Install package
-```bash
-pip install -e .
-```
-
 4. Ensure that all required temp directories are available
   * `data`
 
@@ -45,7 +40,7 @@ We used four public datasets in this study. We also provide the **preprocessed**
 - [Amazon Reviews](https://jmcauley.ucsd.edu/data/amazon/)
 - [DomainNet](http://ai.bu.edu/M3SDA/)
 - [Sleep-EDF](https://researchdata.ntu.edu.sg/privateurl.xhtml?token=9f854e11-4384-44d4-bad8-9d2894c76f07)
-- [UCIHAR](https://researchdata.ntu.edu.sg/privateurl.xhtml?token=ddaf52b4-37ef-4578-aaed-d9d4c8a942c0)
+- [UCIHAR](https://researchdata.ntu.edu.sg/dataset.xhtml?persistentId=doi:10.21979/N9/0SYHTZ)
 - [HHAR](https://researchdata.ntu.edu.sg/privateurl.xhtml?token=e44f10b6-e160-4e63-8fcf-8060aadbd3e5)
 - [WISDM](https://researchdata.ntu.edu.sg/privateurl.xhtml?token=55e459de-c9d7-470f-8453-ad086c304f9d)
 
