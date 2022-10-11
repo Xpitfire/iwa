@@ -90,15 +90,13 @@ To add a new algorithm, place it in `algorithms/algorithms.py` file.
 
 ## Training procedure
 
-### Training a model
-
-To train the models:
+### To train the models run:
 
 ```bash
 ./run.sh
 ```
 
-To collect the results:
+### To collect the results run:
 
 ```bash
 ./collect_results.sh
