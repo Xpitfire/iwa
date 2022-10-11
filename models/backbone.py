@@ -78,15 +78,6 @@ def get_backbone(config):
         num_features = list(getattr(model, config.backbone.feature_layer).parameters())[-1].shape[0]
         set_gradients_enabled(config, model)
         extractor = register_resnet_features_extraction(config, model)
-    elif config.backbone.model == "alexnet":
-        print('Selected AlexNet backbone')
-        model = models.alexnet(pretrained=config.backbone.pretrained)
-        if config.debug: print(model)
-        model = model.to(config.device)
-        params = model.parameters()
-        num_features = list(getattr(model, config.backbone.feature_layer)[config.backbone.feature_layer_idx].parameters())[-1].shape[0]
-        set_gradients_enabled(config, model)
-        extractor = register_alexnet_features_extraction(config, model)
     else:
         raise NotImplementedError("Not Implemented!")
     return extractor, model, params, num_features

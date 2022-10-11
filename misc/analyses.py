@@ -100,9 +100,10 @@ def prepare_dataset_results_df_for_paper(dataset_results_df, columns_in_order=['
     mean_df = dataset_results_df.groupby(level=['Method', 'domain']).mean()
     mean_df = mean_df.xs('target', level='domain')
 
-    std_df = dataset_results_df.groupby(level=['Method', 'domain']).std()
+    std_df = dataset_results_df.groupby(level=['Method', 'domains', 'domain']).std()
     std_df = std_df.xs('target', level='domain')
-
+    std_df = std_df.groupby(level=['Method']).mean()
+    
     # get lambdas
     def _is_float(element) -> bool:
         try:
@@ -118,6 +119,7 @@ def prepare_dataset_results_df_for_paper(dataset_results_df, columns_in_order=['
     # add target best column to std table
     tb_idxs = mean_df[lambdas].idxmax(axis=1)
     tb_std_column = pd.Series(dtype=np.float64)
+
     for idx, col in tb_idxs.iteritems():
         tb_std_column[idx] = std_df.loc[idx, col]
     std_df['tb'] = tb_std_column

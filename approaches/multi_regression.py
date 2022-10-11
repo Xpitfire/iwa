@@ -27,6 +27,7 @@ class TargetMajorityVoteLinearRegression(LinearRegressionSelector):
         
         # data matrix
         X_pred = self.target_pred_probabilities.reshape(self.n_lambdas, -1).transpose()
+        # labels
         # construct pseudo target labels based on majority voting
         target_preds = np.argmax(self.target_pred_probabilities, axis=2)
         target_majority_preds = np.zeros(self.n_target, dtype=np.int64) # number of target samples

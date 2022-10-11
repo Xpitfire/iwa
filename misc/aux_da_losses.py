@@ -111,6 +111,7 @@ def F_cmd_loss(x1, x2, n_moments):
         moments_diff_sum = first_moment_diff
     else:
         moments_diff_sum = 0
+        print('Nan or Inf in loss...')
 
     for i in range(n_moments - 1):
         # moment diff of centralized samples
@@ -118,6 +119,8 @@ def F_cmd_loss(x1, x2, n_moments):
 
         if not (torch.isinf(diff_moments) or torch.isnan(diff_moments)):
             moments_diff_sum = moments_diff_sum + diff_moments
+        else:
+            print('Nan or Inf in loss...')
 
     return moments_diff_sum
 

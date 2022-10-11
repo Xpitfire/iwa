@@ -118,7 +118,7 @@ class EnsembleTrainer():
         # save aggregation results
         save_dir = self.extractor.processed_results_dir
         save_dir.mkdir(exist_ok=True)
-        acc_file = str(save_dir / f'accuracies.npz')  
+        acc_file = str(save_dir / f'accuracies.npz')
         np.savez(acc_file, src_acc=self.src_acc_dict, tgt_acc=self.tgt_acc_dict,
                  ensemble_weights=self.ensemble_weights_dict)
         agg_file = str(save_dir / f'aggregators.npz')

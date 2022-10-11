@@ -100,4 +100,10 @@ class Loader:
         return iwv_preds
 
     def get_cls_trainlogs(domain: str) -> Any:
+        #! probably not so important
+        # levels in cls_results
+        # -> keys: lambdas (with domain as prefix f'{domain}-{lambda})
+        # -> keys: seeds (as str, i.e. '1234')
+        # -> [list with 1 entry]
+        # -> keys: ['train_losses', 'eval_losses', 'train_accs', 'eval_accs', 'train_values', 'eval_values']
         raise NotImplementedError()
