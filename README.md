@@ -106,8 +106,8 @@ To add a new algorithm, place it in `algorithms/algorithms.py` file.
 Main trainer file is `trainer.py` and includes also source-only results when executed.
 
 ## Results
-- Each run will have all the cross-domain scenarios results in the format `src_to_trg_run_x`, where `x`
-is the run_id (you can have multiple runs by assigning `--num_runs` arg). 
+- Each run will have all the cross-domain scenarios results in the format `runx_src_to_trg`, where `x`
+is the run_id. 
 - Under each directory, you will find the classification report, a log file, checkpoint, 
 and the different risks scores.
 - By the end of the all the runs, you will find the overall average and std results in the run directory.
