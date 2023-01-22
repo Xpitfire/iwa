@@ -1,4 +1,4 @@
-# Addressing Parameter Choice Issues in Unsupervised Domain Adaptation by Aggregation [[Paper]()]
+# Addressing Parameter Choice Issues in Unsupervised Domain Adaptation by Aggregation [[Paper](https://openreview.net/forum?id=M95oDwJXayG)]
 
 ![alt text](images/header.png "Logo Title Text 1")
 
@@ -115,3 +115,17 @@ and the different risks scores.
 * [Unsupervised Domain Adaptation by Backpropagation](https://github.com/fungtion/DANN)
 * [Towards Accurate Model Selection in Deep Unsupervised Domain Adaptation](https://github.com/thuml/Deep-Embedded-Validation)
 * [The balancing principle for parameter choice in distance-regularized domain adaptation](https://github.com/Xpitfire/bpda)
+
+## Citation
+
+```latex
+@inproceedings{
+  IWA23,
+  title={Addressing Parameter Choice Issues in Unsupervised Domain Adaptation by Aggregation},
+  author={Dinu, Marius-Constantin and Beck, Maximilian and Nguyen, Duc Hoan and Huber, Andrea and Eghbal-zadeh, Hamid and Moser, Bernhard A. and Pereverzyev, Sergei V. and Hochreiter, Sepp and Zellinger, Werner},
+  booktitle={Submitted to The Eleventh International Conference on Learning Representations },
+  year={2023},
+  url={https://openreview.net/forum?id=M95oDwJXayG},
+  note={under review}
+}
+```
